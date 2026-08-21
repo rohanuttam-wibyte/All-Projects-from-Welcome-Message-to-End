@@ -87,13 +87,25 @@ for cnt in range(1000):
             
     t.clear() 
     
+    # --- NEW: Draw the Main Title ---
+    t.goto(0, 195)
+    t.write("⚽ Pitch Perfect Passing ⚽", align="center", font=("Arial", 16, "bold"))
+    
+    # Draw the Position Key
+    t.goto(0, 165)
+    t.write("POSITION KEY", align="center", font=("Arial", 10, "bold", "underline"))
+    t.goto(0, 145)
+    t.write("GK: Goalkeeper  |  LB/RB: Left/Right Back  |  LCB/RCB: Left/Right Center Back", align="center", font=("Arial", 9, "normal"))
+    t.goto(0, 130)
+    t.write("LCM/CM/RCM: Midfielders  |  LW/RW: Left/Right Wing  |  ST: Striker", align="center", font=("Arial", 9, "normal"))
+    
     # Check all 11 players to draw the ball
     for kk in range(11):
         b = (pattern & (2**kk)) >> kk
         
         x_pos, y_pos = positions[kk]
         
-        # Write the actual Position Name from our new list!
+        # Write the actual Position Name
         t.goto(x_pos, y_pos + 25)
         t.write(player_names[kk], align="center", font=("Arial", 12, "bold"))
         
